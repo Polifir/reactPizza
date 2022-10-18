@@ -1,0 +1,25 @@
+.container{
+  position: relative;
+
+  svg{
+    position: absolute;
+    top: 27%;
+    left: 3%;
+  }
+
+  input{
+    font-size: 16px;
+    font-weight: 500;
+    border: 1px solid #d3d3d3;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 30px;
+  }
+
+  div{
+    cursor: pointer;
+    position: absolute;
+    top: 28%;
+    right: 10%;
+  }
+}
