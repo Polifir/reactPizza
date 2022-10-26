@@ -16,6 +16,7 @@ export const SortOrderContext = createContext()
 export const Home = ({search}) => {
 
   const isSearch = useRef(false)
+  const isMountend = useRef(false)
   const navigate = useNavigate()
   const categoryId = useSelector(state => state.filter.categoryId)
   const sortType = useSelector(state => state.filter.sort.sortProperty)
@@ -76,6 +77,7 @@ export const Home = ({search}) => {
   }, [categoryId, sortType, descOrAsc, search, pageCount]);
 
   useEffect(()=>{
+   if(isMountend.current){
     const queryString = qs.stringify({
       search,
       sortType,
@@ -84,7 +86,9 @@ export const Home = ({search}) => {
       descOrAsc
     })
     navigate(`?${queryString}`)
+   }
 
+   isMountend.current = true;
   }, [categoryId, sortType, descOrAsc, search, pageCount])
 
   return (
