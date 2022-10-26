@@ -3,15 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import styles from './OrderSort.module.scss';
 import {setOrderSort} from '../../redux/slices/filterSlice.js'
 
+export const orderSortValue = [
+  {name: 'A', sortOrderProperty: "asc"},
+  {name: "Z", sortOrderProperty: "desc"}
+ ] 
 
 export const OrderSort = () => {
   const dispatch = useDispatch()
   const sortOrder = useSelector(state => state.filter.orderSort)
- 
-  const orderSortValue = [
-    {name: 'A', sortOrderProperty: "asc"},
-    {name: "Z", sortOrderProperty: "desc"}
-   ] 
+
   return (
       <ul className={styles.container}>
         {orderSortValue.map((obj, index)=>
