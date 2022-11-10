@@ -41,10 +41,8 @@ export const Home = ({search}) => {
   useEffect(()=>{
     if(window.location.search){
       const params = qs.parse(window.location.search.substring(1))
-      console.log(params)
-      console.log(window.location.search)
-      const sort = sortList.find((obj)=> obj.sortProperty === params.sortType)
-      const orderSort = orderSortValue.find((obj) => obj.sortOrderProperty === params.descOrAsc)
+      const sort = sortList.find(({sortProperty})=> sortProperty === params.sortType)
+      const orderSort = orderSortValue.find(({sortOrderProperty}) => sortOrderProperty === params.descOrAsc)
       dispatch(setFilters({
         ...params, sort, orderSort
       }))
