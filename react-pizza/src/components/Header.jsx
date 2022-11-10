@@ -6,6 +6,7 @@ import { Search } from "./Serach/Search";
 
 export const Header = () => {
   const {items, totalPrice} = useSelector(state => state.cart)
+  const itemsCount = items.reduce((prev, cur)=> prev + cur.count, 0)
   return (
     <div className="header">
       <div className="container">
@@ -54,7 +55,7 @@ export const Header = () => {
                 strokeLinejoin="round"
               />
             </svg>
-            <span className="num">{items.length}</span>
+            <span className="num">{itemsCount}</span>
           </Link>
         </div>
       </div>
